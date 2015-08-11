@@ -1,0 +1,38 @@
+<script type="text/ng-template" id="pageHome.html">
+
+  <section ng-controller="pageHomeCtrl" ng-show="module.progress === false">
+
+    <div class="section-view home-view">
+
+      <div class="section-image fx-fade" in-view="module.inviewHandler($inview)" layout="row" layout-fill>
+        <div flex></div>
+      </div>
+
+      <div class="section-articles" in-view="module.inviewHandler($inview)" layout-gt-md="row" layout="column" layout-margin>
+        <div ng-repeat="article in pageHome.articles" flex>
+          <md-card class="fx-fade">
+            <md-tooltip md-direction="top">{{ article.slogan }}</md-tooltip>
+            <img ng-src="{{ article.img }}" class="md-card-image" alt="{{ article.slogan }}" />
+          </md-card>
+        </div>
+      </div>
+
+      <div ng-if="!module.progress" class="section-video" in-view="module.inviewHandler($inview)" layout="row" layout-fill hide-sm>
+        <div flex>
+          <video-bg class="section-video-bg" video-id="'KxmnERZK1yU'"></video-bg>
+        </div>
+      </div>
+
+      <div class="section-contact" in-view="module.inviewHandler($inview)" layout="row" layout-fill  layout-sm="column">
+        <div map-lazy-load="https://maps.google.com/maps/api/js" flex>
+          <map ng-if="!module.progress" zoom="8" center="Costa Rica" on-center-changed="pageHome.centerChanged()" scrollwheel="false" visible="true">
+            <info-window id="1" position="Costa Rica" visible="true">
+              <contact-dir template="contact.html"></contact-dir>
+            </info-window>
+          </map>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</script>

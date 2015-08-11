@@ -1,0 +1,46 @@
+<html lang="en" ng-app="app" ng-strict-di>
+  <head>
+    <title>{%=o.htmlWebpackPlugin.options.title || 'Angular Starter' %}</title>
+    {% if (o.htmlWebpackPlugin.files.favicon) { %}
+    <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon %}">
+    {% } %}
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {% for (var css in o.htmlWebpackPlugin.files.css) { %}
+    <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
+    {% } %}
+    <meta name="viewport" content="initial-scale=1" />
+  </head>
+
+  <body ng-controller="moduleCtrl as module" ng-init="module.init()">
+
+    <md-progress-linear ng-if="module.progress" class="fx-fade" md-mode="indeterminate"></md-progress-linear>
+
+    <md-toolbar class="section-toolbar" ng-show="module.progress === false">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon class="md-hue-1"> favorite </md-icon>
+        </md-button>
+        <span flex></span>
+        <h1 in-view="module.inviewHandler($inview, 'Logo')"
+            class="fx-logo"
+            ng-class="{ 'in': module.animateLogo, 'out': module.animateLogo }">
+          {{ module.logo }}
+        </h1>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon class="md-accent"> flash_on </md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <div><ng-view></ng-view></div>
+
+    <!-- Scripts -->
+    {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
+    {% } %}
+  </body>
+
+</html>

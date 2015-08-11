@@ -1,0 +1,48 @@
+<html lang="en" ng-app="app" ng-strict-di>
+  <head>
+    <title>Angular Material Starter</title>
+    
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+    <link href="vendors.0724d6d28af8305debc4.css" rel="stylesheet">
+    
+    <link href="app.73d30338580d5165686e.css" rel="stylesheet">
+    
+    <meta name="viewport" content="initial-scale=1" />
+  </head>
+
+  <body ng-controller="moduleCtrl as module" ng-init="module.init()">
+
+    <md-progress-linear ng-if="module.progress" class="fx-fade" md-mode="indeterminate"></md-progress-linear>
+
+    <md-toolbar class="section-toolbar" ng-show="module.progress === false">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon class="md-hue-1"> favorite </md-icon>
+        </md-button>
+        <span flex></span>
+        <h1 in-view="module.inviewHandler($inview, 'Logo')"
+            class="fx-logo"
+            ng-class="{ 'in': module.animateLogo, 'out': module.animateLogo }">
+          {{ module.logo }}
+        </h1>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon class="md-accent"> flash_on </md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <div><ng-view></ng-view></div>
+
+    <!-- Scripts -->
+    
+    <script src="vendors.0724d6d28af8305debc4.js"></script>
+    
+    <script src="app.73d30338580d5165686e.js"></script>
+    
+  </body>
+
+</html>
