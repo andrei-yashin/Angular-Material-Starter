@@ -1,13 +1,16 @@
 Angular Material Starter
 ========================
 
-  - https://rawgit.com/josoroma/Angular-Material-Starter/master/dist/index.html
-
 Essential Starter for your Angular Material App:
 
   - npm + webpack + angular-material
 
   - Not need jQuery + Not need Bootstrap
+
+Demo
+====
+
+  - https://rawgit.com/josoroma/Angular-Material-Starter/master/dist/index.html
 
 Why?
 ====
